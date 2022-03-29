@@ -5,7 +5,7 @@ config:
   user.user-data: |
     #cloud-config
     users:
-      - name: root
+      - name: ubuntu
         ssh-import-id: gh:jmp1985
         shell: /bin/bash
     apt:
@@ -25,7 +25,7 @@ config:
       - python3-pip
       - neovim
     runcmd:
-      - wget https://raw.githubusercontent.com/jmp1985/development/main/bootstrap.sh
+      - wget https://raw.githubusercontent.com/jmp1985/development/main/bootstrap.sh -O /home/ubuntu/bootstrap.sh
 devices:
   gpu:
     type: gpu
