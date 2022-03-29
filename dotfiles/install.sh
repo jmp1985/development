@@ -1,8 +1,9 @@
 #!/bin/bash
 
 function install {
+  dir=$(dirname $0)
   name=$1
-  ln -s $(pwd)/${name} ~/.${name}
+  ln -s $(realpath ${dir}/${name}) ~/.${name}
 }
 
 install git_template

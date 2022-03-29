@@ -1,5 +1,7 @@
 # development
 
+> A repository to help setup my development environment in an LXD container
+
 First create an LXD profile.
 
 ```
@@ -9,7 +11,7 @@ lxc profile create dev
 Edit the profile with the dev.profile contents
 
 ```
-cat dev.profile | lxc profile edit dev
+cat lxd/dev.profile | lxc profile edit dev
 ```
 
 Launch a container using the profile
@@ -32,4 +34,22 @@ Host dev
   User ubuntu
   ForwardAgent yes
   ForwardX11 yes
+```
+
+Now login to the container
+
+```
+ssh dev
+```
+
+Clone this repository
+
+```
+git clone git@github.com:jmp1985/development ~/Software/development
+```
+
+Run the install script
+
+```
+bash ~/Software/development/install.sh
 ```

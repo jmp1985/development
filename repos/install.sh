@@ -26,8 +26,8 @@ function install {
 
 function initialise {
   name=$1
-  mkdir -p Software/envs
-  pushd Software/envs
+  mkdir -p ~/Software/envs
+  pushd ~/Software/envs
   python3.9 -m venv ${name}
   source $(pwd)/${name}/bin/activate
   echo source $(pwd)/${name}/bin/activate >> ~/.bashrc
