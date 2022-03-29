@@ -25,8 +25,7 @@ config:
       - python3-pip
       - neovim
     runcmd:
-      - echo git clone git@github.com:jmp1985/development.git ~/Software/development > init.sh
-      - echo bash ~/Software/development/install.sh >> init.sh
+      - wget https://github.com/jmp1985/development/bootstrap.sh
 devices:
   gpu:
     type: gpu
