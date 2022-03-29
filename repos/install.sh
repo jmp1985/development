@@ -2,7 +2,7 @@
 
 set -e
 
-DIR=$(basename ${0})
+DIR=$(dirname ${0})
 
 function clone {
   src=$1
