@@ -25,11 +25,11 @@ config:
       - python3-pip
       - neovim
     runcmd:
-      - wget https://github.com/jmp1985/development/bootstrap.sh
+      - wget https://raw.githubusercontent.com/jmp1985/development/main/bootstrap.sh
 devices:
   gpu:
     type: gpu
-  host:
+  home:
     source: /home/upc86896
     path: /home/ubuntu/host
     type: disk
