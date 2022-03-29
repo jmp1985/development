@@ -4,14 +4,19 @@ config:
   nvidia.runtime: true
   user.user-data: |
     #cloud-config
+    users:
+      - name: root
+        ssh-import-id: gh:jmp1985
+        shell: /bin/bash
     package_update: true
     package_upgrade: true
     packages:
       - x11-apps
       - build-essential
       - libfftw3-dev
-      - python3.9-dev
-      - python3.9-venv
+      - python-is-python3
+      - python3-dev
+      - python3-pip
     runcmd:
       - wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
       - sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600

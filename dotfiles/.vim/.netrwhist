@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/upc86896/Software/amplus-digital-twin/src/parakeet/command_line/config'
+let g:netrw_dirhist_3='/home/upc86896/Software/amplus-digital-twin/src/parakeet/command_line'
+let g:netrw_dirhist_2='/home/upc86896/Software/amplus-digital-twin/src/parakeet/analyse'
+let g:netrw_dirhist_1='/home/upc86896/Software/amplus-digital-twin/src/parakeet/sample'
+let g:netrw_dirhist_0='/home/upc86896/Software/amplus-digital-twin/tests'
+let g:netrw_dirhist_9='/home/upc86896/Software/napari-nexus-reader/napari_nexus_reader'
+let g:netrw_dirhist_8='/home/upc86896/Software/napari-mrcfile-reader/napari_mrcfile_reader'
+let g:netrw_dirhist_7='/home/upc86896/Software/napari-mrcfile-reader'
+let g:netrw_dirhist_6='/home/upc86896/Software/conda-channel/conda'
+let g:netrw_dirhist_5='/home/upc86896/conda'

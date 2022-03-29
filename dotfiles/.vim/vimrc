@@ -1,0 +1,112 @@
+" -----------------------------------------------------------------------------
+"  Some general options
+" -----------------------------------------------------------------------------
+syntax on                       " Syntax highlighting
+filetype plugin indent on       " Recognise local filetype
+set nocompatible                " No Vi compatibility
+set shortmess+=I                " No Welcome screen
+" set nohlsearch                  " Don't highlight search
+set backspace=indent,eol,start  " Fix for buggy backspace problem
+set tabstop=2                   " 2 space tab stop
+set shiftwidth=2                " 2 space shift width
+set softtabstop=2               " 2 space soft tab stop
+set autoindent                  " use auto indent
+set smartindent                 " use smart indent
+set expandtab                   " expand tabs to spaces
+set ruler                       " Show line and column number
+"set textwidth=80                " Maximum 80 chars per line
+set whichwrap+=<,>,h,l,[,]      " Arrows wrap around
+set hidden                      " Buffers can exist in the background
+set fillchars=""                " Remove ugly split character
+set mouse+=a                    " Enable mouse for scrolling
+set number                      " Show line numbers
+set confirm                     " Confirm write on exit
+set cursorline                  " Show current line
+set clipboard=unnamedplus       " Synchronize with clipboard          
+set wildmenu                    " Command completions
+set wildmode=longest:full,full  " Command completions
+set nobackup                    " Use backup files
+set writebackup                 " Write a backup file
+set noswapfile                  " Don't write a swap file
+set completeopt=menuone,longest " Complete options
+set fillchars+=vert:│
+" set omnifunc=syntaxcomplete#Complete " Set completion
+
+" -----------------------------------------------------------------------------
+"  Some options for netrw
+" -----------------------------------------------------------------------------
+
+" Remove netrw banner
+let g:netrw_banner = 0
+let g:netrw_liststyle = 0
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+" -----------------------------------------------------------------------------
+"  Colour scheme
+" -----------------------------------------------------------------------------
+
+set background=dark
+colorscheme torte
+
+" Highlight the current line in bold and remove split highlight
+highlight CursorLine term=bold cterm=bold
+highlight VertSplit term=none cterm=none
+
+" -----------------------------------------------------------------------------
+"  Some GUI options
+" -----------------------------------------------------------------------------
+
+if has("gui_running")
+
+  set guioptions-=T         " No tool bar
+  set guioptions-=m         " No menu bar
+  set guifont=Ubuntu\ Mono\ 13
+  set lines=25 columns=80   " The size of the window
+
+endif
+
+" -----------------------------------------------------------------------------
+"  Some tmux options 
+" -----------------------------------------------------------------------------
+
+if &term =~ '^screen'
+  set ttymouse=xterm2     " Enable better mouse movement in vim
+endif
+
+" -----------------------------------------------------------------------------
+"  Some latex stuff
+" -----------------------------------------------------------------------------
+
+let g:tex_flavor="latex"
+
+" -----------------------------------------------------------------------------
+"  Some custom functions
+" -----------------------------------------------------------------------------
+
+function! g:ToggleNuMode()
+  if(&rnu == 1)
+    set nornu
+  else
+    set rnu
+  endif
+endfunction
+
+" -----------------------------------------------------------------------------
+"  Some custom key mappings
+" -----------------------------------------------------------------------------
+
+" Toggle line number mode on <C-L>
+nnoremap <silent> <C-L> :call g:ToggleNuMode()<cr> 
+
+" Toggle file explorer on <C-F>
+nnoremap <silent> <C-F> :Lexplore<cr>
+
+" Toggle highlighting on <C-K>
+nnoremap <silent> <C-K> :noh<cr>
+
+" Highlight current word matches but don't move to next match
+:map <Leader>* :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
+:map <Leader>g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
+

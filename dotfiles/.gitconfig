@@ -1,0 +1,11 @@
+[user]
+	email = james.parkhurst@diamond.ac.uk
+	name = James Parkhurst
+[core]
+	editor = nvim
+[init]
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags
+[credential]
+	helper = cache
