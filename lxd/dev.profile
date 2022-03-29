@@ -6,6 +6,7 @@ config:
     #cloud-config
     users:
       - name: ubuntu
+        sudo: ALL=(ALL) NOPASSWD:ALL
         ssh-import-id: gh:jmp1985
         shell: /bin/bash
     apt:
