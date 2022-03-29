@@ -26,8 +26,10 @@ lxc exec dev -- tail -f /var/log/cloud-init-output.log
 
 Add the following lines to .ssh/config on the host machine
 
+```
 Host dev
   HostName <CONTAINER_IP_ADDRESS>
   User ubuntu
   ForwardAgent yes
   ForwardX11 yes
+```
