@@ -29,9 +29,9 @@ config:
 devices:
   gpu:
     type: gpu
-  home:
+  host:
     source: /home/upc86896
-    path: /home/ubuntu/host
+    path: /host
     type: disk
     shift: true
 use_by: []
