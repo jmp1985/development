@@ -1,0 +1,6 @@
+# Setup GIT prompt
+PS1=$PS1'$(__git_ps1 "(%s) ")'
+
+# Use neovim
+alias vim="nvim"
+

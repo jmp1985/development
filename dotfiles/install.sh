@@ -9,3 +9,4 @@ function install {
 install git_template
 install gitconfig
 install vim
+install bash_aliases
