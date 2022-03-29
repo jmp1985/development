@@ -1,12 +1,20 @@
 #!/bin/bash
 
 function install {
-  dir=$(dirname $0)
-  name=$1
-  ln -s $(realpath ${dir}/${name}) ~/.${name}
+  src=$(realpath $(dirname $0)/${1})
+  dst=${2}
+  if ! [ -e $(dirname ${dst}) ]
+  then
+    mkdir -p $(dirname ${dst})
+  fi
+  if ! [ -e ${dst} ]
+  then
+    ln -s ${src} ${dst}
+  fi
 }
 
-install git_template
-install gitconfig
-install vim
-install bash_aliases
+install git_template ~/.git_template
+install gitconfig ~/.gitconfig
+install vim ~/.vim
+install bash_aliases ~/.bash_aliases
+install init.vim ~/.config/nvim/init.vim
