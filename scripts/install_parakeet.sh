@@ -1,20 +1,46 @@
 #!/bin/bash
 
+set -e
+
+function clone {
+  src=$1
+  dst=$2
+  git_dir=$dst/.git
+  if [ ! -d $git_dir ]
+  then
+    git clone $src $dst
+    pushd $dst
+    git submodule update --init
+    popd
+  fi
+}
+
 function install {
-  git clone $1
-  pushd $(basename $1)
-  git submodule update --init
-  python -m pip install -e . --user
+  src=$1
+  dst=~/Software/$(basename $src)
+  clone $src $dst
+  pushd $dst
+  python -m pip install -e .
+  popd
+}
+
+function initialise {
+  name=$1
+  mkdir -p Software/envs
+  pushd Software/envs
+  python3.9 -m venv ${name}
+  source $(pwd)/${name}/bin/activate
+  echo source $(pwd)/${name}/bin/activate >> ~/.bashrc
   popd
 }
 
 mkdir -p ~/Software
-pushd ~/Software
+export CUDACXX=/usr/local/cuda/bin/nvcc
 
-checkout git@github.com:/rosalindfranklininstitute/python-multem
-checkout git@github.com:/rosalindfranklininstitute/guanaco
-checkout git@github.com:/rosalindfranklininstitute/maptools
-checkout git@github.com:/rosalindfranklininstitute/crystallise
-checkout git@github.com:/rosalindfranklininstitute/amplus-digital-twin
+initialise parakeet
 
-popd
+install git@github.com:rosalindfranklininstitute/python-multem
+install git@github.com:rosalindfranklininstitute/guanaco
+install git@github.com:rosalindfranklininstitute/maptools
+install git@github.com:rosalindfranklininstitute/crystallise
+install git@github.com:rosalindfranklininstitute/amplus-digital-twin
