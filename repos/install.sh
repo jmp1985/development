@@ -2,6 +2,8 @@
 
 set -e
 
+DIR=$(basename ${0})
+
 function clone {
   src=$1
   dst=$2
@@ -44,3 +46,5 @@ install git@github.com:rosalindfranklininstitute/guanaco
 install git@github.com:rosalindfranklininstitute/maptools
 install git@github.com:rosalindfranklininstitute/crystallise
 install git@github.com:rosalindfranklininstitute/amplus-digital-twin
+
+python -m pip install -r ${DIR}/dev_requirements.txt

@@ -42,14 +42,12 @@ Now login to the container
 ssh dev
 ```
 
-Clone this repository
+When cloud-init has finished running there should be a script called init.sh in
+the home directory. Run is as follows:
 
 ```
-git clone git@github.com:jmp1985/development ~/Software/development
+bash init.sh
 ```
 
-Run the install script
-
-```
-bash ~/Software/development/install.sh
-```
+This will clone this repository and then install all the repositories and other
+python packages.
