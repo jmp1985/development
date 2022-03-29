@@ -24,7 +24,15 @@ config:
       - python3-dev
       - python3-pip
       - neovim
+    runcmd:
+      - echo git clone git@github.com:jmp1985/development.git ~/Software/development > init.sh
+      - echo bash ~/Software/development/install.sh >> init.sh
 devices:
   gpu:
     type: gpu
+  host:
+    source: /home/upc86896
+    path: /home/ubuntu/host
+    type: disk
+    shift: true
 use_by: []
