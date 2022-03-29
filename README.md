@@ -46,7 +46,7 @@ When cloud-init has finished running there should be a script called init.sh in
 the home directory. Run is as follows:
 
 ```
-bash init.sh
+bash bootstrap.sh
 ```
 
 This will clone this repository and then install all the repositories and other
